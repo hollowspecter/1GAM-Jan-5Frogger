@@ -1,0 +1,31 @@
+http://lpc.opengameart.org/static/lpc-style-guide/assets.html
+Lanea Zimmerman
+
+http://gta.wikia.com/Vehicles_in_GTA_1
+
+sfx
+http://www.superflashbros.net/as3sfxr/
+
+Background Music
+TITLE Kevin MacLeod (incompetech.com)
+
+Cody "CodeMan38" Boisclair
+font pressstart2 unter SIL Open Font License
+
+
+
+Credits:
+
+Designed, Programmed, and all that matters
+Vivien Baguio
+
+Sound effects
+Tom Vian (Super Flash Bros) http://www.superflashbros.net/as3sfxr/
+
+Music
+Spazzmatica Polka - Kevin MacLeod (incompetech.com)
+Theme for Harold var 1 - Kevin MacLeod (incompetech.com)
+8bit Dungeon Level - Kevin MacLeod (incompetech.com)
+
+Background Base Tileset (grass, dirt, water)
+Lanea Zimmerman
