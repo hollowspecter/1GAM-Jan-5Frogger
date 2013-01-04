@@ -135,9 +135,29 @@ public class AllObjects {
 			obj.init(container);
 		}
 		
-		for (int i = 0; i <= Constants.RUPEEPOSLAST.length - 1; i++) {
-			Rupee rupee = new Rupee(Constants.RUPEEPOSLAST[i], Constants.RUPEEPOSLASTY);
+		for (int i = 0; i <= Constants.RUPEEPOS.length - 1; i++) {
+			Rupee rupee = new Rupee(Constants.RUPEEPOS[i], Constants.RUPEEPOSLASTY);
 			getRupees().add(rupee);
+		}
+		
+		//Alle Rupees auf der Straße generieren
+		for (int i = 0; i <= 4; i++) {
+			for (int j = 0; j <= 4; j++) {
+				RupeeLane rupee = new RupeeLane(i,j);
+				rupees.add(rupee);
+			}
+		}
+		//Alle Rupees auf dem Fluss
+		for (int i = 0; i <= 4; i++) {
+			for (int j = 0; j <= 4; j++) {
+				RupeeLane rupee = new RupeeLane(i,j+6);
+				rupees.add(rupee);
+			}
+		}
+		//Alle Rupees auf dem Mittelstreifen
+		for (int i=0; i <= 4; i++) {
+			RupeeLane rupee = new RupeeLane(i,5);
+			rupees.add(rupee);
 		}
 		
 		for(GameObj obj : getRupees()) {
@@ -166,6 +186,9 @@ public class AllObjects {
 	
 	public void render(GameContainer container, Graphics g) throws SlickException
 	{
+		for(GameObj obj : getRupees()) {
+			obj.render(container, g);
+			}
 		for(GameObj obj : getCars()) {
 			obj.render(container, g);
 			}
@@ -173,9 +196,6 @@ public class AllObjects {
 			obj.render(container, g);
 			}
 		for(GameObj obj : getWall()) {
-			obj.render(container, g);
-			}
-		for(GameObj obj : getRupees()) {
 			obj.render(container, g);
 			}
 //		for(GameObj obj : river) {

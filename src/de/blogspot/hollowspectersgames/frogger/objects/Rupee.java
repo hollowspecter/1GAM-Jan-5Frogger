@@ -15,14 +15,15 @@ public class Rupee extends GameObj{
 	private Image img2;
 	private Image img3;
 	private Image img4;
+	private Image img5;
 	private Sound sound;
 	
 	//modifyer
-	private boolean collected = false;
+	protected boolean collected = false;
 	
 	public Rupee(float posX, float posY) {
 		super(posX, posY, 0, 0, "rupee1");
-		this.wert = randomizeWert();
+		randomize();
 	}
 
 	public void init(GameContainer container) throws SlickException
@@ -35,6 +36,7 @@ public class Rupee extends GameObj{
 		img2 = new Image("img/rupee3.png");
 		img3 = new Image("img/rupee-1.png");
 		img4 = new Image("img/rupee5.png");
+		img5 = new Image("img/rupee10.png");
 		
 	}
 	
@@ -48,17 +50,29 @@ public class Rupee extends GameObj{
 		if (collected == false)
 		{
 			if (wert == 3)
-				img2.draw(posX,getPosY());
+				img2.drawCentered(posX,getPosY());
 			else if (wert == -1)
-				img3.draw(posX,getPosY());
+				img3.drawCentered(posX,getPosY());
 			else if (wert == 5)
-				img4.draw(posX,getPosY());
+				img4.drawCentered(posX,getPosY());
+			else if (wert == 10)
+				img5.drawCentered(posX, posY);
 			else
-				img1.draw(posX, getPosY());
+				img1.drawCentered(posX, getPosY());
 		}
 	}
 	
-	public int randomizeWert()
+	public void randomize()
+	{
+		randomizeWert(3, 5, 0.66f, 0.93f);
+	}
+	
+	/*
+	 * Ursprüngliche Methode, die zwischen 1, -1 und 3 würfelt
+	 * Verhältnisse stehen in der Constants.java
+	 */
+	
+	public void randomizeWert()
 	{
 		final double n = Math.random();
 		
@@ -73,22 +87,44 @@ public class Rupee extends GameObj{
 			wert = 3;
 		
 		this.setCollected(false);
-		
-		return wert;
  	}
 	
-	//randomized zwischen den zwei werten zu der angegebenen wahrscheinlichkeit
+	/*
+	 * Bei dieser Methode kann zwischen 2 Werten gewürfelt werden,
+	 * und die Wahrscheinlichkeit muss mit angegeben werden
+	 */
+	
 	public void randomizeWert(int wert1, int wert2, float chance)
 	{
 		final double n = Math.random();
 		
 		if (n >= 0 && n < chance)
 			wert = wert1;
-		if (n >= chance && n < 1)
+		if (n >= chance && n <= 1)
 			wert = wert2;
 		
 		this.setCollected(false);
-	 }
+ 	}
+	
+	/*
+	 * Wieder für 2 verschiedene Werte, hinzukommt aber die zweite Chance
+	 * für einen goldenen Rubin (10) der extrem viel wert ist
+	 * und deswegen nur sehr selten ist
+	 */
+	
+	public void randomizeWert(int wert1, int wert2, float chance1, float chance2)
+	{
+		final double n = Math.random();
+		
+		if (n >= 0 && n < chance1)
+			wert = wert1;
+		if (n >= chance1 && n < chance2)
+			wert = wert2;
+		if (n >= chance2 && n < 1)
+			wert = 10;
+		
+		this.setCollected(false);
+ 	}
 	
 	public int getWert()
 	{

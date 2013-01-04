@@ -115,7 +115,7 @@ public class GameStatePlaying extends BasicGameState {
     		woman.getSound().play();
     		timerBar.restoreWidth();
     		for (Rupee obj : allOtherObjects.getRupees()) {
-				obj.randomizeWert();
+				obj.randomize();
 			}
     	}
     	
@@ -126,7 +126,7 @@ public class GameStatePlaying extends BasicGameState {
 			sound_music.stop();
 			
 			frog.reset();
-			frog.setLifeCount(3);
+			frog.setLifeCount(2);
 			timerBar.setTimerOn(false);
 			
 			state.enterState(GameStates.GameOver);
@@ -136,13 +136,13 @@ public class GameStatePlaying extends BasicGameState {
 		//außerdem die Rupees wieder neu druchwürfeln
 		if (timerBar.getEvent() == true) {
 			frog.reduceLifeCount();
-			frog.setLifeCount(frog.getLifeCount() + 1);
+			frog.incrLifeCount();
 			timerBar.setEvent(false);
 			frog.reset();
 			timerBar.setTimerOn(false);
 
 			for (Rupee obj : allOtherObjects.getRupees()) {
-				obj.randomizeWert();
+				obj.randomize();
 			}
 		}
 		
@@ -155,7 +155,7 @@ public class GameStatePlaying extends BasicGameState {
 				timerBar.setTimerOn(false);
 				
 				for (Rupee obj2 : allOtherObjects.getRupees()) {
-					obj2.randomizeWert();
+					obj2.randomize();
 				}
 			}
 		}
@@ -182,7 +182,7 @@ public class GameStatePlaying extends BasicGameState {
 				timerBar.setTimerOn(false);
 				
 				for (Rupee obj : allOtherObjects.getRupees()) {
-					obj.randomizeWert();
+					obj.randomize();
 				}
 			}
 		}

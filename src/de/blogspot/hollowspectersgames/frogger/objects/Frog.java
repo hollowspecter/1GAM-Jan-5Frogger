@@ -124,6 +124,11 @@ public class Frog extends CenteredCollisionFrog{
 		sound_die.play();
 	}
 	
+	public void incrLifeCount()
+	{
+		lifeCount++;
+	}
+	
 	public void setLifeCount(int numberOfLives)
 	{
 		lifeCount = numberOfLives+1;

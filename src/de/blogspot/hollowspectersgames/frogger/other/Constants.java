@@ -31,7 +31,7 @@ public class Constants {
 	public static final float LANESPD10 = 100f;
 	
 	//X positionen von Rupees ganz hinten
-	public static final int[] RUPEEPOSLAST = {63, 166, 268, 370, 475};
+	public static final int[] RUPEEPOS = {63, 166, 268, 370, 475};
 	public static final int RUPEEPOSLASTY = 53;
 	
 	//0%-x% = Wert1; x%-y% = Wert-1, y%-100% = Wert3
@@ -60,8 +60,9 @@ public class Constants {
 	public static final String GUIDE4 = "If the time runs out, you die!";
 	public static final String GUIDE5 = "Try to get as many as you can!";
 
-	public static int intRandomFromTo(int low, int high) {
-		high++;
-		return (int) (Math.random() * (high - low) + low);
+	public static float getPosYWithLane(int lane)
+	{
+		return 563.0f - 45.0f*lane;
 	}
+	
 }
