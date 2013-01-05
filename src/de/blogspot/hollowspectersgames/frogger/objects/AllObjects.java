@@ -186,13 +186,13 @@ public class AllObjects {
 	
 	public void render(GameContainer container, Graphics g) throws SlickException
 	{
+		for(GameObj obj : getLogs()) {
+			obj.render(container, g);
+			}
 		for(GameObj obj : getRupees()) {
 			obj.render(container, g);
 			}
 		for(GameObj obj : getCars()) {
-			obj.render(container, g);
-			}
-		for(GameObj obj : getLogs()) {
 			obj.render(container, g);
 			}
 		for(GameObj obj : getWall()) {

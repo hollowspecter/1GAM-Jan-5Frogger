@@ -8,6 +8,14 @@ import org.newdawn.slick.Sound;
 
 import de.blogspot.hollowspectersgames.frogger.other.Constants;
 
+/*
+ * Grün +1
+ * Schwarz -3
+ * Blau +10
+ * Rot +20
+ * Gold +50
+ */
+
 public class Rupee extends GameObj{
 			
 	protected int wert;
@@ -49,13 +57,13 @@ public class Rupee extends GameObj{
 	{
 		if (collected == false)
 		{
-			if (wert == 3)
+			if (wert == 10)
 				img2.drawCentered(posX,getPosY());
-			else if (wert == -1)
+			else if (wert == -3)
 				img3.drawCentered(posX,getPosY());
-			else if (wert == 5)
+			else if (wert == 20)
 				img4.drawCentered(posX,getPosY());
-			else if (wert == 10)
+			else if (wert == 50)
 				img5.drawCentered(posX, posY);
 			else
 				img1.drawCentered(posX, getPosY());
@@ -64,7 +72,7 @@ public class Rupee extends GameObj{
 	
 	public void randomize()
 	{
-		randomizeWert(3, 5, 0.66f, 0.93f);
+		randomizeWert(10, 20, 0.66f, 0.93f);
 	}
 	
 	/*
@@ -81,10 +89,10 @@ public class Rupee extends GameObj{
 			wert = 1;
 		
 		if (n >= Constants.RUPEECHANCES[0] && n < Constants.RUPEECHANCES[1])
-			wert = -1;
+			wert = -3;
 		
 		if (n >= Constants.RUPEECHANCES[1] && n <= 1)
-			wert = 3;
+			wert = 10;
 		
 		this.setCollected(false);
  	}
@@ -121,7 +129,7 @@ public class Rupee extends GameObj{
 		if (n >= chance1 && n < chance2)
 			wert = wert2;
 		if (n >= chance2 && n < 1)
-			wert = 10;
+			wert = 50;
 		
 		this.setCollected(false);
  	}

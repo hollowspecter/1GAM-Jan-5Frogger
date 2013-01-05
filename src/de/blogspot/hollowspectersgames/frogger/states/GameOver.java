@@ -22,6 +22,8 @@ public class GameOver extends BasicGameState {
 	private Image numbers;
 	private Image[] number = new Image[10];
 	private long posX, posY;
+	private long posX2, posY2;
+	private Image rupee;
 	
 	@Override
 	public void init(GameContainer container, StateBasedGame game) throws SlickException
@@ -30,6 +32,7 @@ public class GameOver extends BasicGameState {
 		select = new Sound(Constants.SOUND_SELECT);
 		background = new Image("img/menu/gameover_bg.png");
 		music = new Sound(Constants.SOUND_GAMEOVERBG);
+		rupee = new Image("img/rupee1.png");
 		
 		/*
 		 * In Numbers sind alle Ziffern drin, um den Highscore darzustellen.
@@ -49,6 +52,8 @@ public class GameOver extends BasicGameState {
 
 		posX = 270;
 		posY = 200;
+		posX2 = 270;
+		posY2 = 250;
 	}
 	
 	@Override
@@ -76,6 +81,8 @@ public class GameOver extends BasicGameState {
 		{
 			select.play();
 			music.stop();
+			
+			//Highscores gelöscht
 			state.enterState(GameStates.MenuState);
 		}	
 	}
@@ -84,25 +91,36 @@ public class GameOver extends BasicGameState {
 	public void render(GameContainer container, StateBasedGame state, Graphics g) throws SlickException
 	{		
 		background.draw(0,0);
+		rupee.draw((posX2 + 23), posY2 -17, 1.5f);
 		
 		if (flash == true)
 			pressStartToReturn.drawCentered(270,580);
 		
-		//Die 3 Ziffern rendern!
+		//Die 5 Ziffern rendern!
 		//zuerst den rupeeCounter in ein int array umwandeln
 		
-		int[] numbersArr = intToIntArray(GameStatePlaying.getCounter());
+		long[] numbersArr = longToIntArray(GameStatePlaying.highscore);
 		
 		//dann rendern
 		
-		for (int i = 0; i <= 2; i++) {
-			int n = numbersArr[i];
-			number[n].drawCentered((posX-33)+i*33,posY);
+		for (int i = 0; i <= 4; i++) {
+			long n = numbersArr[i];
+			number[(int) n].drawCentered((posX-33*2)+i*33,posY);
 			/*
 			 * posX setzt sich so zusammen, dass posX die Mitte ist, posX+32
 			 * die rechte stelle ist, und dann jeweils um 32 nach links gerückt wird
-			 * 32 ist quasi die gap
+			 * 33 ist quasi die gap
 			 */
+		}
+		
+		/*
+		 * Zweiter Counter nur für die Rupees.
+		 */
+		int[] numbersArr2 = rupeesToIntArray(GameStatePlaying.getCounter());
+
+		for (int i = 0; i <= 2; i++) {
+			int n = numbersArr2[i];
+			number[n].drawCentered((posX2-33*2)+i*33,posY2);
 		}
 		
 	}
@@ -111,7 +129,26 @@ public class GameOver extends BasicGameState {
 		return GameStates.GameOver;
 	}
 
-	public int[] intToIntArray(int n)
+	public long[] longToIntArray(long n)
+	{
+		long einer;
+		long zehner;
+		long hunderter;
+		long tausender;
+		long zehntausender;
+		
+		einer = n%10;
+		zehner = (n - einer)/10;
+		hunderter = ((n - einer) - zehner)/100;
+		tausender = (((n - einer) - zehner) - hunderter)/1000;
+		zehntausender = ((((n - einer) - zehner) - hunderter) - tausender)/1000;
+		
+		long[] longArray = {zehntausender, tausender, hunderter, zehner, einer};
+		
+		return longArray;
+	}
+	
+	public int[] rupeesToIntArray(int n)
 	{
 		int einer;
 		int zehner;

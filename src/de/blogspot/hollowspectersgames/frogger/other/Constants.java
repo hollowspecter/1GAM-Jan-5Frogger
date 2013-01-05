@@ -65,4 +65,9 @@ public class Constants {
 		return 563.0f - 45.0f*lane;
 	}
 	
+	/*
+	 * Score idee:
+	 * Rupee * Zeit die übrig geblieben ist!
+	 */
+	
 }

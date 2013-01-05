@@ -49,6 +49,11 @@ public class GameStateMenu extends BasicGameState {
 		if (music.playing() == false)
 			music.loop();
 
+		//reset Highscore!
+		if (GameStatePlaying.highscore != 0) {
+			GameStatePlaying.highscore = 0;
+			GameStatePlaying.rupeeCounter = 0;
+		}		
 		selecter.update(container, delta);
 		
 		Input input = container.getInput();

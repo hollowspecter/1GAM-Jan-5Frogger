@@ -35,6 +35,7 @@ public class GameStatePlaying extends BasicGameState {
 	
 	//Highscores
 	public static int rupeeCounter;
+	public static long highscore;
 	
 	//Timer
 	private long resetTimer;
@@ -105,7 +106,18 @@ public class GameStatePlaying extends BasicGameState {
     	}
 		
     	//und bei der Frau abgeben!
+    	/*
+    	 * Nur wenn die Rupees bei der Frau abgegegeben werden
+    	 * dann wird die Zeit vollends aufgefüllt
+    	 */
+    	/*
+    	 * Berechnung des Highscores:
+    	 * Rupees * verbliebende Zeit = Highscore
+    	 */
     	if (frog.checkCollisionWith(woman) == true && frog.getRupeesInBag() != 0) {
+    		
+    		//Highscore Berechnung!
+    		highscore = (long) ((timerBar.getWidth()/1) * frog.getRupeeaInBag());
     		
     		rupeeCounter += frog.getRupeesInBag();
     		frog.setRupeesInBag(0);
@@ -119,13 +131,14 @@ public class GameStatePlaying extends BasicGameState {
 			}
     	}
     	
-		//beim Tod
+		//beim Tod/Gameover
 		if (frog.getLifeCount()<=0)
 		{
 			frog.getSound_gameover().play();
 			sound_music.stop();
 			
 			frog.reset();
+			frog.setRupeesInBag(0);
 			frog.setLifeCount(2);
 			timerBar.setTimerOn(false);
 			
@@ -148,7 +161,6 @@ public class GameStatePlaying extends BasicGameState {
 		
 		// Kollisionsabfrage
 		// Frosch mit Autos
-
 		for (GameObj obj : allOtherObjects.getCars()) {
 			if (frog.checkCollisionWith(obj) == true) {
 				frog.reset();
@@ -277,6 +289,8 @@ public class GameStatePlaying extends BasicGameState {
 		
 		g.drawString(guideString,10,6);
 		g.drawString(String.valueOf(rupeeCounter),300,644);
+		g.drawString("Highscore: " + String.valueOf(highscore),20,644);
+
 	}
 	
 
