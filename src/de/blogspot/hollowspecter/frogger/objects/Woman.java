@@ -37,7 +37,7 @@ public class Woman extends GameObj{
 	{
 		//wenn die Frau Rupees erhalten hat, soll sie vom Bildschirm mit
 		//der Tasche verschwinden, und nach einem kurzen Moment wieder
-		//ohne Rucksack sich hinstellen
+		//ohne Rucksack sich hinstellen. Toggled with isAnimation = true
 		if (isAnimation() == true && timer != 0) {
 			timer--;
 

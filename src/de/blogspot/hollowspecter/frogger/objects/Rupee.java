@@ -80,26 +80,26 @@ public class Rupee extends GameObj{
 	 * Verhältnisse stehen in der Constants.java
 	 */
 	
-	public void randomizeWert()
-	{
-		final double n = Math.random();
-		
-		//die Wahrscheinlichkeiten sind in Constants als RUPEECHANCES abgespeichert
-		if (n >= 0 && n < Constants.RUPEECHANCES[0])
-			wert = 1;
-		
-		if (n >= Constants.RUPEECHANCES[0] && n < Constants.RUPEECHANCES[1])
-			wert = -3;
-		
-		if (n >= Constants.RUPEECHANCES[1] && n <= 1)
-			wert = 10;
-		
-		this.setCollected(false);
- 	}
+//	public void randomizeWert()
+//	{
+//		final double n = Math.random();
+//		
+//		//die Wahrscheinlichkeiten sind in Constants als RUPEECHANCES abgespeichert
+//		if (n >= 0 && n < Constants.RUPEECHANCES[0])
+//			wert = 1;
+//		
+//		if (n >= Constants.RUPEECHANCES[0] && n < Constants.RUPEECHANCES[1])
+//			wert = -3;
+//		
+//		if (n >= Constants.RUPEECHANCES[1] && n <= 1)
+//			wert = 10;
+//		
+//		this.setCollected(false);
+// 	}
 	
 	/*
 	 * Bei dieser Methode kann zwischen 2 Werten gewürfelt werden,
-	 * und die Wahrscheinlichkeit muss mit angegeben werden
+	 * und die Wahrscheinlichkeit wird dabei mitgegeben
 	 */
 	
 	public void randomizeWert(int wert1, int wert2, float chance)
@@ -116,8 +116,8 @@ public class Rupee extends GameObj{
 	
 	/*
 	 * Wieder für 2 verschiedene Werte, hinzukommt aber die zweite Chance
-	 * für einen goldenen Rubin (10) der extrem viel wert ist
-	 * und deswegen nur sehr selten ist
+	 * für einen goldenen Rubin (50) der extrem viel wert ist
+	 * und deswegen nur sehr selten sein soll
 	 */
 	
 	public void randomizeWert(int wert1, int wert2, float chance1, float chance2)

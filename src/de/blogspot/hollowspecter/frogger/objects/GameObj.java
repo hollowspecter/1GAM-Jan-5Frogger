@@ -86,14 +86,6 @@ public class GameObj {
 		else return false;
 	}
 	
-	public boolean checkCollisionWith(GameObj firstObj, GameObj secondObj)
-	{
-		return (secondObj.collisionShape.contains(firstObj.collisionShape) ||
-				secondObj.collisionShape.intersects(firstObj.collisionShape) ||
-				secondObj.collisionShape.contains(secondObj.collisionShape) ||
-				secondObj.collisionShape.intersects(secondObj.collisionShape));
-	}
-	
 	public void reset()
 	{
 		this.posX = startPosX;

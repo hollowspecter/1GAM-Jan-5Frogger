@@ -74,7 +74,7 @@ public class AllObjects {
 			obj.init(container);
 		}
 		
-		//alle schwimmenden Sachen
+		//swimming logs
 		
 		for (int i = 0; i <= Constants.LANEPOS6.length - 1; i++) {
 			MovingObj log6 = new MovingObj(Constants.LANEPOS6[i], "log2", 6);
@@ -135,12 +135,14 @@ public class AllObjects {
 			obj.init(container);
 		}
 		
+		//Rupees ganz hinten
 		for (int i = 0; i <= Constants.RUPEEPOS.length - 1; i++) {
 			Rupee rupee = new Rupee(Constants.RUPEEPOS[i], Constants.RUPEEPOSLASTY);
 			getRupees().add(rupee);
 		}
 		
 		//Alle Rupees auf der Straße generieren
+		//i, j ist lane und position (es gibt 5 positionen auf jeder der 5 lanes)
 		for (int i = 0; i <= 4; i++) {
 			for (int j = 0; j <= 4; j++) {
 				RupeeLane rupee = new RupeeLane(i,j);
@@ -216,6 +218,10 @@ public class AllObjects {
 		else return null;
 	}
 
+	/*
+	 * Generierte getter und setter als ich die packages refactored habe
+	 */
+	
 	public ArrayList<Rupee> getRupees() {
 		return rupees;
 	}

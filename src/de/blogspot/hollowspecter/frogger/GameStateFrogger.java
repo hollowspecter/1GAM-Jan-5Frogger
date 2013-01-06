@@ -32,7 +32,7 @@ public class GameStateFrogger extends StateBasedGame{
 	public static void main(String[] args) {
 		try {
 			AppGameContainer app = new AppGameContainer(new GameStateFrogger(), 540, 680, false);
-			app.setVSync(true); //stops tearing
+			app.setVSync(true); //stops tearing, FPS at ~60
 			app.setAlwaysRender(true);
 			app.setShowFPS(false);
 			app.start();

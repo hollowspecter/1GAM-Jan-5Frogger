@@ -5,6 +5,11 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
+/*
+ * Kleine zahl die über dem Frosch wegfadet/hovert, wenn
+ * man einen Rupee eingesammelt hat.
+ */
+
 public class RupeeStringHover {
 	
 	private float posX;

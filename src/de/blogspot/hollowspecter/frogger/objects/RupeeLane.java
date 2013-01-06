@@ -35,13 +35,19 @@ public class RupeeLane extends Rupee{
 		super.render(container, g);
 	}
 	
+	/*
+	 * Überschreibt ursprüngliche randomize, je nachdem ob auf
+	 * der Straße, auf dem Mittelstreifen oder auf dem Fluss,
+	 * sollen die Werte anders gewürfelt werden
+	 */
+	
 	public void randomize()
 	{
 		//Auf der Straße
 		if (lane <= 4)
 		{
 			/*
-			 * Bei den Autos sollen nur grüne und vereinzelt schwarze Rubine sein
+			 * Auf der Straße nur grüne und vereinzelt schwarze Rubine sein
 			 * Sie sollen nur zu einer bestimmten Wahrscheinlichkeit random
 			 * gespawnt werden! Toggle with "collected"
 			 */

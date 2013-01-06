@@ -17,9 +17,9 @@ public class Frog extends CenteredCollisionFrog{
 	protected int lifeCount;
 	protected int rupeesInBag;
 	protected boolean onBoat;
+	private boolean eingabe;
 	private Image frogWithBag;
 	private Image life;
-	private boolean eingabe;
 	protected Sound sound_die;
 	private Sound sound_gameover;
 	
@@ -42,11 +42,8 @@ public class Frog extends CenteredCollisionFrog{
 		super.init(container);
 		
 		frogWithBag = new Image("img/frogWithBag.png");
-		
 		life = new Image("img/frog.png");
-		
 		setRupeeStringHover(new RupeeStringHover());
-		
 		sound_die = new Sound(Constants.SOUND_DIE);
 		setSound_gameover(new Sound(Constants.SOUND_GAMEOVER));
 	}
@@ -78,7 +75,7 @@ public class Frog extends CenteredCollisionFrog{
 				setSpdY(0);
 			}
 		
-		//schräg laufen können und die Bildrotation dazu
+		//beim schräg laufen bild auch schräg rotieren lassen
 		if (input.isKeyDown(Input.KEY_LEFT)&&input.isKeyDown(Input.KEY_UP))
 			img.setRotation(-45);
 		if (input.isKeyDown(Input.KEY_LEFT)&&input.isKeyDown(Input.KEY_DOWN))
@@ -171,6 +168,15 @@ public class Frog extends CenteredCollisionFrog{
 	
 	public void reset()
 	{
+		/*
+		 * 1. collision is turned off so the frog can slide in off screen
+		 * 2. input is toggled off so while sliding you cant move around
+		 * 3. reduced lifecount
+		 * 4. frog is rotatet to its original
+		 * 5. posX and posY resettet, speed set, so he slides in
+		 * 6. bag is emptied
+		 */
+		
 		if (lifeCount > 1)
 		{
 			this.setCollisionOn(false);
@@ -187,6 +193,10 @@ public class Frog extends CenteredCollisionFrog{
 		}
 		else
 		{
+			/*
+			 * When Gameover
+			 */
+			
 			this.posX = startPosX;
 			this.setPosY(startPosY);
 			collisionShape.setCenterX(startPosX);

@@ -71,7 +71,8 @@ public class TimerRectangle {
 			}
 			
 		}
-		else flash = false;
+		else
+			flash = false;
 	}
 	
 	public void render(GameContainer container, Graphics g) throws SlickException

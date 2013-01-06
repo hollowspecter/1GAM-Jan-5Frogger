@@ -60,14 +60,12 @@ public class Constants {
 	public static final String GUIDE4 = "If the time runs out, you die!";
 	public static final String GUIDE5 = "Try to get as many as you can!";
 
+	
+	/*
+	 * spuckt Y koordinate aus für die gewollte lane
+	 */
 	public static float getPosYWithLane(int lane)
 	{
 		return 563.0f - 45.0f*lane;
 	}
-	
-	/*
-	 * Score idee:
-	 * Rupee * Zeit die übrig geblieben ist!
-	 */
-	
 }

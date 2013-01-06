@@ -141,20 +141,4 @@ public class GameOver extends BasicGameState {
 		
 		return intArray;
 	}
-	
-//	
-//	public int[] rupeesToIntArray(int n)
-//	{
-//		int einer;
-//		int zehner;
-//		int hunderter;
-//		
-//		einer = n%10;
-//		zehner = (n - einer)/10;
-//		hunderter = ((n - einer) - zehner)/100;
-//		
-//		int[] intArray = {hunderter, zehner, einer};
-//		
-//		return intArray;
-//	}
 }
