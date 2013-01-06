@@ -4,7 +4,7 @@ public class Constants {
 	
 	//Alle Autos
 	public static final float[] LANEPOS0 = {300f, 600f, 750f};
-	public static final float[] LANEPOS1 = {-100f, -230f};
+	public static final float[] LANEPOS1 = {-100f, -230f, 200};
 	public static final float[] LANEPOS2 = {-100f, -300f};
 	public static final float[] LANEPOS3 = {500f, 750f, 1000f};
 	public static final float[] LANEPOS4 = {400f, 140f, -100f};
@@ -18,9 +18,9 @@ public class Constants {
 	
 	//Alle Baumstämme
 	public static final float[] LANEPOS6 = {-50f, -200f, -600f};
-	public static final float[] LANEPOS7 = {650f, 800f};
+	public static final float[] LANEPOS7 = {650f, 800f, 350f};
 	public static final float[] LANEPOS8 = {-50f, -300f, -620f};
-	public static final float[] LANEPOS9 = {734f, 1080f};
+	public static final float[] LANEPOS9 = {734f, 1080f, 300f};
 	public static final float[] LANEPOS10 = {-300f, -555f, -1000f};
 	
 	//Geschwindigkeiten der Baumstämme

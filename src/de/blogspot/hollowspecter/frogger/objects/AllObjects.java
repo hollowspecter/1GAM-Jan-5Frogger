@@ -58,8 +58,8 @@ public class AllObjects {
 		//Lane 3 Hotdog
 		for(int i=0; i <= Constants.LANEPOS3.length-1; i++)
 		{
-			Hotdog hotdog = new Hotdog(Constants.LANEPOS3[i], 3);
-			getCars().add(hotdog);
+			MovingObj itali = new MovingObj(Constants.LANEPOS3[i], "itali", 3);
+			getCars().add(itali);
 		}
 		
 		//Lane 4 Donuts
@@ -77,27 +77,27 @@ public class AllObjects {
 		//alle schwimmenden Sachen
 		
 		for (int i = 0; i <= Constants.LANEPOS6.length - 1; i++) {
-			MovingObj log6 = new MovingObj(Constants.LANEPOS6[i], "poop", 6);
+			MovingObj log6 = new MovingObj(Constants.LANEPOS6[i], "log2", 6);
 			getLogs().add(log6);
 		}
 
 		for (int i = 0; i <= Constants.LANEPOS7.length - 1; i++) {
-			MovingObj log7 = new MovingObj(Constants.LANEPOS7[i], "poop", 7);
+			MovingObj log7 = new MovingObj(Constants.LANEPOS7[i], "log2", 7);
 			getLogs().add(log7);
 		}
 
 		for (int i = 0; i <= Constants.LANEPOS8.length - 1; i++) {
-			MovingObj log8 = new MovingObj(Constants.LANEPOS8[i], "poop", 8);
+			MovingObj log8 = new MovingObj(Constants.LANEPOS8[i], "log2", 8);
 			getLogs().add(log8);
 		}
 
 		for (int i = 0; i <= Constants.LANEPOS9.length - 1; i++) {
-			MovingObj log9 = new MovingObj(Constants.LANEPOS9[i], "poop", 9);
+			MovingObj log9 = new MovingObj(Constants.LANEPOS9[i], "log2", 9);
 			getLogs().add(log9);
 		}
 
 		for (int i = 0; i <= Constants.LANEPOS10.length - 1; i++) {
-			MovingObj log10 = new MovingObj(Constants.LANEPOS10[i], "poop", 10);
+			MovingObj log10 = new MovingObj(Constants.LANEPOS10[i], "log2", 10);
 			getLogs().add(log10);
 		}
 		

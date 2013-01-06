@@ -52,7 +52,7 @@ public class GameOver extends BasicGameState {
 
 		posX = 285;
 		posY = 200;
-		posX2 = 270;
+		posX2 = 285;
 		posY2 = 250;
 	}
 	
@@ -83,6 +83,9 @@ public class GameOver extends BasicGameState {
 			music.stop();
 			
 			//Highscores gelöscht
+			GameStatePlaying.highscore = 0;
+			GameStatePlaying.rupeeCounter = 0;
+			
 			state.enterState(GameStates.MenuState);
 		}	
 	}
@@ -91,7 +94,7 @@ public class GameOver extends BasicGameState {
 	public void render(GameContainer container, StateBasedGame state, Graphics g) throws SlickException
 	{		
 		background.draw(0,0);
-		rupee.draw((posX2 + 23), posY2 -17, 1.5f);
+		rupee.draw((posX2 + 100), posY2 -17, 1.5f);
 		
 		if (flash == true)
 			pressStartToReturn.drawCentered(270,580);
@@ -99,7 +102,7 @@ public class GameOver extends BasicGameState {
 		//Die 5 Ziffern rendern!
 		//zuerst den rupeeCounter in ein int array umwandeln
 		
-		int[] numbersArr = intToIntArray(GameStatePlaying.highscore);
+		int[] numbersArr = intToIntArray(GameStatePlaying.highscore, 7);
 		
 		//dann rendern
 		
@@ -111,11 +114,11 @@ public class GameOver extends BasicGameState {
 		/*
 		 * Zweiter Counter nur für die Rupees.
 		 */
-		int[] numbersArr2 = rupeesToIntArray(GameStatePlaying.getCounter());
+		int[] numbersArr2 = intToIntArray(GameStatePlaying.getCounter(), 7);
 
-		for (int i = 0; i <= 2; i++) {
+		for (int i = 0; i <= 6; i++) {
 			int n = numbersArr2[i];
-			number[n].drawCentered((posX2-33*2)+i*33,posY2);
+			number[n].drawCentered((posX2+33*2)-i*33,posY2);
 		}
 		
 	}
@@ -124,9 +127,9 @@ public class GameOver extends BasicGameState {
 		return GameStates.GameOver;
 	}
 
-	public int[] intToIntArray(int n)
+	public int[] intToIntArray(int n, int length)
 	{
-		int[] intArray = new int[7];
+		int[] intArray = new int[length];
 		int i = 0;
 		
 		while (n != 0)
@@ -139,18 +142,19 @@ public class GameOver extends BasicGameState {
 		return intArray;
 	}
 	
-	public int[] rupeesToIntArray(int n)
-	{
-		int einer;
-		int zehner;
-		int hunderter;
-		
-		einer = n%10;
-		zehner = (n - einer)/10;
-		hunderter = ((n - einer) - zehner)/100;
-		
-		int[] intArray = {hunderter, zehner, einer};
-		
-		return intArray;
-	}
+//	
+//	public int[] rupeesToIntArray(int n)
+//	{
+//		int einer;
+//		int zehner;
+//		int hunderter;
+//		
+//		einer = n%10;
+//		zehner = (n - einer)/10;
+//		hunderter = ((n - einer) - zehner)/100;
+//		
+//		int[] intArray = {hunderter, zehner, einer};
+//		
+//		return intArray;
+//	}
 }

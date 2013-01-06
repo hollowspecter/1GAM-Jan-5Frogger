@@ -58,7 +58,7 @@ public class GameStateCredits extends BasicGameState {
 		background.draw(0,0);
 		
 		if (flash == true)
-			pressStartToReturn.drawCentered(270,580);
+			pressStartToReturn.drawCentered(270,615);
 	}
 
 	public int getID() {
