@@ -50,7 +50,7 @@ public class GameOver extends BasicGameState {
 		number[8] = numbers.getSubImage(288, 0, 32, 32);
 		number[9] = numbers.getSubImage(324, 0, 33, 32);
 
-		posX = 270;
+		posX = 285;
 		posY = 200;
 		posX2 = 270;
 		posY2 = 250;
@@ -103,14 +103,9 @@ public class GameOver extends BasicGameState {
 		
 		//dann rendern
 		
-		for (int i = 0; i <= 4; i++) {
+		for (int i = 0; i <= 6; i++) {
 			int n = numbersArr[i];
-			number[n].drawCentered((posX-33*2)+i*33,posY);
-			/*
-			 * posX setzt sich so zusammen, dass posX die Mitte ist, posX+32
-			 * die rechte stelle ist, und dann jeweils um 32 nach links gerückt wird
-			 * 33 ist quasi die gap
-			 */
+			number[n].drawCentered((posX+33*2)-i*33,posY);
 		}
 		
 		/*
@@ -131,19 +126,15 @@ public class GameOver extends BasicGameState {
 
 	public int[] intToIntArray(int n)
 	{
-		int einer;
-		int zehner;
-		int hunderter;
-		int tausender;
-		int zehntausender;
+		int[] intArray = new int[7];
+		int i = 0;
 		
-		einer = n%10;
-		zehner = (n - einer)/10;
-		hunderter = ((n - einer) - zehner)/100;
-		tausender = (((n - einer) - zehner) - hunderter)/1000;
-		zehntausender = ((((n - einer) - zehner) - hunderter) - tausender)/10000;
-		
-		int[] intArray = {zehntausender, tausender, hunderter, zehner, einer};
+		while (n != 0)
+		{
+			intArray[i] = n%10;
+			n = n/10;
+			i++;
+		}
 		
 		return intArray;
 	}
