@@ -99,13 +99,13 @@ public class GameOver extends BasicGameState {
 		//Die 5 Ziffern rendern!
 		//zuerst den rupeeCounter in ein int array umwandeln
 		
-		long[] numbersArr = longToIntArray(GameStatePlaying.highscore);
+		int[] numbersArr = intToIntArray(GameStatePlaying.highscore);
 		
 		//dann rendern
 		
 		for (int i = 0; i <= 4; i++) {
-			long n = numbersArr[i];
-			number[(int) n].drawCentered((posX-33*2)+i*33,posY);
+			int n = numbersArr[i];
+			number[n].drawCentered((posX-33*2)+i*33,posY);
 			/*
 			 * posX setzt sich so zusammen, dass posX die Mitte ist, posX+32
 			 * die rechte stelle ist, und dann jeweils um 32 nach links gerückt wird
@@ -129,23 +129,23 @@ public class GameOver extends BasicGameState {
 		return GameStates.GameOver;
 	}
 
-	public long[] longToIntArray(long n)
+	public int[] intToIntArray(int n)
 	{
-		long einer;
-		long zehner;
-		long hunderter;
-		long tausender;
-		long zehntausender;
+		int einer;
+		int zehner;
+		int hunderter;
+		int tausender;
+		int zehntausender;
 		
 		einer = n%10;
 		zehner = (n - einer)/10;
 		hunderter = ((n - einer) - zehner)/100;
 		tausender = (((n - einer) - zehner) - hunderter)/1000;
-		zehntausender = ((((n - einer) - zehner) - hunderter) - tausender)/1000;
+		zehntausender = ((((n - einer) - zehner) - hunderter) - tausender)/10000;
 		
-		long[] longArray = {zehntausender, tausender, hunderter, zehner, einer};
+		int[] intArray = {zehntausender, tausender, hunderter, zehner, einer};
 		
-		return longArray;
+		return intArray;
 	}
 	
 	public int[] rupeesToIntArray(int n)

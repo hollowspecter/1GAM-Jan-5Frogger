@@ -35,7 +35,7 @@ public class GameStatePlaying extends BasicGameState {
 	
 	//Highscores
 	public static int rupeeCounter;
-	public static long highscore;
+	public static int highscore;
 	
 	//Timer
 	private long resetTimer;
@@ -117,7 +117,7 @@ public class GameStatePlaying extends BasicGameState {
     	if (frog.checkCollisionWith(woman) == true && frog.getRupeesInBag() != 0) {
     		
     		//Highscore Berechnung!
-    		highscore = (long) ((timerBar.getWidth()/1) * frog.getRupeeaInBag());
+    		highscore += (long) ((timerBar.getWidth()/1) * frog.getRupeeaInBag());
     		
     		rupeeCounter += frog.getRupeesInBag();
     		frog.setRupeesInBag(0);
