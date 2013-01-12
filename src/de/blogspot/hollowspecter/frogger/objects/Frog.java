@@ -224,4 +224,8 @@ public class Frog extends CenteredCollisionFrog{
 	public void setSound_gameover(Sound sound_gameover) {
 		this.sound_gameover = sound_gameover;
 	}
+	
+	public void setSpdX(float spdX) {
+		this.spdX = spdX;
+	}
 }

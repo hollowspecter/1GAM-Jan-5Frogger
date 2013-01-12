@@ -114,12 +114,18 @@ public class GameStatePlaying extends BasicGameState {
     	 * Berechnung des Highscores:
     	 * Rupees * verbliebende Zeit = Highscore
     	 */
-    	if (frog.checkCollisionWith(woman) == true && frog.getRupeesInBag() != 0) {
+    	if (frog.checkCollisionWith(woman) == true && frog.getRupeesInBag() != 0 && woman.getCollisionOn()) {
     		
     		//Highscore Berechnung!
     		highscore += (long) ((timerBar.getWidth()/1) * frog.getRupeeaInBag());
-    		
     		rupeeCounter += frog.getRupeesInBag();
+    		//wenn im Minus, einfach 0 setzen!
+    		if (highscore < 0)
+    			highscore = 0;
+    		if (rupeeCounter < 0)
+    			rupeeCounter = 0;
+    		
+    		
     		frog.setRupeesInBag(0);
     		woman.setWithBag(true);
     		woman.setCollisionOn(false);
@@ -140,7 +146,12 @@ public class GameStatePlaying extends BasicGameState {
 			frog.reset();
 			frog.setRupeesInBag(0);
 			frog.setLifeCount(2);
+			frog.setSpdY(0);
+			frog.setSpdX(0);
 			timerBar.setTimerOn(false);
+			timerBar.setWidth(100);
+			timerBar.reInit();
+			frog.setEingabe(false);
 			
 			state.enterState(GameStates.GameOver);
 		}

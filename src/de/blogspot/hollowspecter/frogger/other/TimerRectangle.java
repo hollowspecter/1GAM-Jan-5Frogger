@@ -126,4 +126,8 @@ public class TimerRectangle {
 	public void setEvent(boolean event) {
 		this.event = event;
 	}
+	
+	public void reInit() {
+		this.timer = 0;
+	}
 }

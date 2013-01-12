@@ -15,7 +15,7 @@ import de.blogspot.hollowspecter.frogger.states.GameStatePlaying;
 public class GameStateFrogger extends StateBasedGame{
 
 	public GameStateFrogger() {
-		super("5F: Find Food For Frogger Family V1.0");
+		super("5F: Find Food For Frogger Family V1.01");
 	}
 
 	@Override
